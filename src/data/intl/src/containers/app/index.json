@@ -1,0 +1,12 @@
+[
+  {
+    "id": "App.PlaceholderTitle",
+    "description": "App placeholder title",
+    "defaultMessage": "Welcome"
+  },
+  {
+    "id": "App.PlaceholderDescription",
+    "description": "App placeholder description",
+    "defaultMessage": "Placeholder"
+  }
+]

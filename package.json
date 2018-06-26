@@ -11,17 +11,68 @@
     "react-intl": "^2.4.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.1.4",
     "reactcss": "^1.2.3",
     "redux": "^4.0.0",
     "redux-localstorage-simple": "^2.1.1",
     "redux-thunk": "^2.3.0"
   },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "7.2.3",
+    "babel-plugin-react-intl": "^2.4.0",
+    "babel-preset-react-app": "^3.1.2",
+    "eslint": "^4.19.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "flow-bin": "^0.47.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.1",
+    "prettier": "^1.10.2",
+    "prettier-eslint-cli": "4.7.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "extract-messages-osx": "NODE_ENV=production babel ./src  --out-file /dev/null",
+    "lint:files": "prettier-eslint ./src/*.js ./src/**/*.js ./src/*.jsx ./src/**/*.jsx .babelrc .eslintrc",
+    "lint": "npm run lint:files -- --list-different",
+    "format": "npm run lint -- --write",
+    "precommit": "lint-staged",
+    "extract-messages": "set NODE_ENV=production&& babel ./src >NUL"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "last 4 versions",
+      "Firefox ESR",
+      "not ie < 11"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "useTabs": true,
+    "bracketSpacing": false
+  },
+  "lint-staged": {
+    "stories/**": [
+      "prettier-eslint --write",
+      "git add"
+    ],
+    "app/scripts/**.{js,jsx}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
   }
 }
