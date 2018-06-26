@@ -18,8 +18,10 @@ import messages_en from './data/intl/language_en';
 import messages_fr from './data/intl/language_fr';
 import messages_default from './data/intl/language_def';
 
+import './bootstrap-reboot.css';
+import './bootstrap-grid.css';
 import './index.css';
-import App from './containers/app/';
+import Landing from './containers/landing/';
 import registerServiceWorker from './registerServiceWorker';
 
 
@@ -42,7 +44,7 @@ const Index = (props) => (
 	>
 		<ConnectedRouter history={history}>
 			<Switch>
-				<Route exact path="/" component={App} />
+				<Route exact path="/" component={Landing} />
 			</Switch>
 		</ConnectedRouter>
   </IntlProvider>
