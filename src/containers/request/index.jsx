@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
-import {Editor, EditorState, RichUtils} from 'draft-js';
-import { FormattedMessage } from 'react-intl';
-import 'draft-js/dist/Draft.css';
+import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor';
+import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin';
+import 'draft-js-inline-toolbar-plugin/lib/plugin.css';
 import './Request.css';
+
+const inlineToolbarPlugin = createInlineToolbarPlugin();
+const { InlineToolbar } = inlineToolbarPlugin;
+const plugins = [inlineToolbarPlugin];
+
 
 class Request extends Component {
     constructor(props) {
         super(props);
-        this.state = {editorState: EditorState.createEmpty()};
+        this.state = {editorState: createEditorStateWithText('')};
         this.onChange = (editorState) => this.setState({editorState});
-        this.handleKeyCommand = this.handleKeyCommand.bind(this);
     }
 	componentDidMount() {
 		
     }
-    handleKeyCommand(command, editorState) {
-        const newState = RichUtils.handleKeyCommand(editorState, command);
-        if (newState) {
-          this.onChange(newState);
-          return 'handled';
-        }
-        return 'not-handled';
+
+    focusEditor = () => {
+        this.editor.focus();
       }
 	render() {
 		return (
@@ -31,7 +31,15 @@ class Request extends Component {
                             Make a request
                         </h2>
                     </div>
-                    <Editor editorState={this.state.editorState} handleKeyCommand={this.handleKeyCommand} onChange={this.onChange} />
+                    <div className="editor" onClick={this.focusEditor}>
+                        <Editor
+                        editorState={this.state.editorState}
+                        onChange={this.onChange}
+                        plugins={plugins}
+                        ref={(element) => { this.editor = element; }}
+                        />
+                        <InlineToolbar />
+                    </div>
                 </div>
 			</div>
 		);

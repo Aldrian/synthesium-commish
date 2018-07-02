@@ -5,6 +5,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "draft-js": "^0.10.5",
+    "draft-js-inline-toolbar-plugin": "^2.0.3",
+    "draft-js-plugins-editor": "^2.1.1",
     "graphql-request": "^1.6.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

@@ -1,0 +1,13 @@
+.editor {
+    box-sizing: border-box;
+    border: 1px solid #6146d7;
+    cursor: text;
+    padding: 16px;
+    border-radius: 3px;
+    margin-bottom: 2em;
+  }
+  
+  .editor :global(.public-DraftEditor-content) {
+    min-height: 140px;
+  }
+  
