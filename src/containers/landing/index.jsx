@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import Button from '../../components/button';
 import profileImage from './profile.png';
 import blokeImage from './bloke.png';
@@ -38,23 +39,34 @@ class Landing extends Component {
 			offset: -80
 		});
 	}
+	componentWillUnmount() {
+		window.Waypoint.destroyAll();
+	}
+	smoothScrollTo(e, direction) {
+		e.preventDefault();
+		window.scrollTo({
+		  behavior: "smooth",
+		  top: document.querySelector(`.${direction}`).offsetTop - 100,
+		  left: 0
+		});
+	  }
 	render() {
 		return (
 			<div className="Landing">
 				<nav className="nav--desktop">
-					<a href="" className="js-btn" data-hover="home">
+					<a href="" className="js-btn" data-hover="home" onClick={(e) => {this.smoothScrollTo(e, 'section--hero')}}>
 						home
 					</a>
-					<a href="" className="js-btn" data-hover="work">
+					<a href="" className="js-btn" data-hover="work" onClick={(e) => {this.smoothScrollTo(e, 'section--work')}}>
 						my work
 					</a>
-					<a href="" className="js-btn" data-hover="offers">
+					<a href="" className="js-btn" data-hover="offers" onClick={(e) => {this.smoothScrollTo(e, 'section--pricing')}}>
 						prices
 					</a>
-					<a href="" className="js-btn" data-hover="rules">
+					<a href="" className="js-btn" data-hover="rules" onClick={(e) => {this.smoothScrollTo(e, 'section--rules')}}>
 						rules
 					</a>
-					<a href="" className="js-btn" data-hover="request">
+					<a href="" className="js-btn" data-hover="request" onClick={(e) => {this.smoothScrollTo(e, 'section--request')}}>
 						request an art
 					</a>
 				</nav>
@@ -125,7 +137,7 @@ class Landing extends Component {
 						</div>
 					</div>
 				</section>
-				<section className="section--Pricing scroll-to-reveal js-section">
+				<section className="section--pricing scroll-to-reveal js-section">
 					<div className="section__title">
 						<h3 className="font-fjalla">Prices</h3>
 						<p>Interested in my art? Here's what I can do for you</p>
@@ -225,7 +237,7 @@ class Landing extends Component {
 						<h3 className="font-fjalla">Ready to get started?</h3>
 						<p>Make your request and I'll get in touch shortly!</p>
 						<div className="button-wrapper">
-							<Button name="Order"/>
+							<Link to="/request"><Button name="Order"/></Link>
 						</div>
 					</div>
 				</section>
