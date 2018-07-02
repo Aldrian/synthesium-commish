@@ -19,6 +19,55 @@
 	z-index: -1;
 }
 
+.section--hero .socials {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.section--hero .socials  img{
+	height: 100%;
+	width: 100%;
+}
+
+.section--hero .socials a {
+	margin-left: 10px;
+	margin-right: 10px;
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 0.6rem;
+	font-weight: 600;
+	letter-spacing: 3px;
+	position: relative;
+}
+
+.section--hero .socials a:before {
+	transition: 0.5s all ease;
+	position: absolute;
+	left: 50%;
+	right: 50%;
+	bottom: -10px;
+	opacity: 0;
+	content: '';
+	height: 2px;
+	background-color: #c0b2fc;
+}
+.section--hero .socials a:hover {
+  color: #c0b2fc;
+  text-decoration: none;
+}
+.section--hero .socials a:hover:before {
+	transition: 0.5s all ease;
+	left: 0;
+	right: 0;
+	opacity: 1;
+}
+.section--hero .socials a.selected {
+	color: #c0b2fc;
+}
+
 .section--work {
 	/* opacity: 0; */
 	margin: 8rem auto;
@@ -105,7 +154,8 @@
 	padding: 2em 2.5em;
 	text-align: left;
 	color: #fff;
-	background: #262c37;
+	background: #6146d711;
+	border: 1px solid #6146d7;
 }
 
 .pricing__item.more {
@@ -117,17 +167,9 @@
 	font-weight: 300;
 	margin: 0 0 0.15em;
 	text-align: center;
-	color: #E25A77;
+	color: #6146d7;
 }
 
-
-.pricing__item:nth-child(2) .pricing__title {
-	color: #E25ABC;
-}
-
-.pricing__item:nth-child(3) .pricing__title {
-	color: #7E5AE2;
-}
 
 .pricing__price {
 	font-size: 3em;
@@ -144,13 +186,13 @@
 .pricing__period {
 	font-size: 0.35em;
 	padding: 0 0 0 0.5em;
-	color: #535965;
+	color: white;
 }
 
 .pricing__sentence {
 	padding: 0 0 0em;
 	margin: 0;
-	color: #535965;
+	color: white;
 }
 
 .pricing__sentence  img {
@@ -173,7 +215,7 @@
 	position: absolute;
 	width: 10px;
 	height: 2px;
-	background: #1F242D;
+	background: white;
 	left: 0;
 	top: 50%;
 	margin: -2px 0 0 0;
@@ -189,7 +231,7 @@
 	margin: 0;
 	padding: 0 0 2.5em;
 	list-style: none;
-	color: #757983;
+	color: #aaa;
 }
 
 
@@ -213,17 +255,27 @@
 	line-height: 60px;
 	color: #fff;
 	border-radius: 30px;
-	background: #E25A77;
+	background: #6146d7;
 	-webkit-transition: background-color 0.3s, color 0.3s;
 	transition: background-color 0.3s, color 0.3s;
 }
 
-.pricing__item:nth-child(2) .pricing__action {
-	background: #E25ABC;
+.section--rules .rule {
+	border: 1px solid #6146d7;
+	border-radius: 3px;
+	padding: 1rem;;
+	margin-bottom: 1rem;
 }
 
-.pricing__item:nth-child(3) .pricing__action {
-	background: #7E5AE2;
+.section--rules .title {
+	color: #c0b2fc;
+	font-weight: 400;
+	font-size: 1em;
+}
+
+.section--rules .title .number {
+	font-size: 1.5em;
+	margin-right: 10px;
 }
 
 .section--request {

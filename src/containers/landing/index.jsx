@@ -7,6 +7,11 @@ import nekolycheeImage from './nekolychee.png';
 import sketchImage from './sketch.png';
 import chibiImage from './chibi.png';
 import requestBG from './request-bg.png';
+import deviantArtLogo from './deviantart.svg';
+import tumblrLogo from './tumblr.svg';
+import twitterLogo from './twitter.svg';
+import faLogo from './fa.svg';
+
 import './Landing.css';
 
 class Landing extends Component {
@@ -69,6 +74,14 @@ class Landing extends Component {
 					</div>
 					<div className="section__title">
 						<h3 className="font-fjalla">Follow me on</h3>
+					</div>
+					<div className="socials">
+						<a href="https://twitter.com/SynthesiumStars">Twitter</a>
+						<a href="https://synthesium.deviantart.com/">DeviantArt</a>
+						<a href="https://synthesium.tumblr.com/">Tumblr</a>
+						<a href="https://www.furaffinity.net/user/AstralChaos/">FurAffinity</a>
+						<a href="https://www.furaffinity.net/user/AstralChaos/">ArtFight</a>
+						<a href="https://www.furaffinity.net/user/AstralChaos/">ToyHouse</a>
 					</div>
 				</section>
 
@@ -167,34 +180,34 @@ class Landing extends Component {
 						<p>To get things going smoothly</p>
 					</div>
 					<div>
-						<p>
-							1. I accept to draw: <br />
+						<p className="rule">
+							<span className="title"><span className="number font-fjalla">1.</span> I accept to draw: <br /></span>
 							Pretty much anything, animals, anthros, creatures (mythical or not), original species, original characters, canon characters, gore, humans (not always, it's specified if not)...
 						</p>
-						<p>
-							2. But I wont draw: <br />
+						<p className="rule">
+							<span className="title"><span className="number font-fjalla">2.</span> But I wont draw: <br /></span>
 							Hate stuff, fetishes...
 							I keep the right to refuse a commission if I'm not comfortable doing it.
 
 						</p>
-						<p>
-							3. Visual reference: <br />
+						<p className="rule">
+							<span className="title"><span className="number font-fjalla">3.</span> Visual reference: <br /></span>
 							I need a basic visual of the character(/s) to work, I won't accept to work with only written descriptions (it takes a lot of time to translate for me).
 							Of course, you can write some details to complete the reference.
 
 						</p>
-						<p>
-							4. Examples: <br />
+						<p className="rule">
+							<span className="title"><span className="number font-fjalla">4.</span> Examples: <br /></span>
 							There will always be some examples to represent, the best possible, what is proposed.
 
 						</p>
-						<p>
-							5. Payment: <br />
+						<p className="rule">
+							<span className="title"><span className="number font-fjalla">5.</span> Payment: <br /></span>
 							Paypal only.
 
 						</p>
-						<p>
-							6. Files, shipments and reposting: <br />
+						<p className="rule">
+							<span className="title"><span className="number font-fjalla">6.</span> Files, shipments and reposting: <br /></span>
 							All drawings will be posted on DeviantArt and sometime other website such as Tumblr, Facebook,Twitter... (except on request), in high resolution and with my watermark on it. <br />
 							For traditional work, I can send the original art to you, but at your expense (Also, I couldn't be held responsible if the mail is lost). <br />
 							For Digital work, you can ask for the .psd file. <br />
