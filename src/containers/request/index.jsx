@@ -69,63 +69,71 @@ class Request extends Component {
                         <p>Please fill up this form and I will get back to you shortly!</p>
                     </div>
                     <div className="request-form">
-                        <p className="label">
-                            <span className="number font-fjalla">1.</span> My email:
-                        </p>
-                        <input
-                            type="email"
-                            value={this.state.email}
-                            onChange={(e) => {this.setState({email: e.target.value, emailError: false})}}
-                            className={`${this.state.emailError ? 'is-error' : ''}`}
-                        />
-                        <p className="label">
-                            <span className="number font-fjalla">2.</span> I want:
-                        </p>
-                        <CustomSelect
-                            elems={[
-                                {
-                                    value: 'sketch',
-                                    name: 'A sketch',
-                                },
-                                {
-                                    value: 'chibi',
-                                    name: 'A Chibi',
-                                },
-                                {
-                                    value: 'character',
-                                    name: 'A character',
-                                },
+                        <section>
+                            <p className="label">
+                                <span className="number font-fjalla">1.</span> My email:
+                            </p>
+                            <input
+                                type="email"
+                                value={this.state.email}
+                                onChange={(e) => {this.setState({email: e.target.value, emailError: false})}}
+                                className={`${this.state.emailError ? 'is-error' : ''}`}
+                            />
+                        </section>
+                        <section>
+                            <p className="label">
+                                <span className="number font-fjalla">2.</span> I want:
+                            </p>
+                            <CustomSelect
+                                elems={[
+                                    {
+                                        value: 'sketch',
+                                        name: 'A sketch',
+                                    },
+                                    {
+                                        value: 'chibi',
+                                        name: 'A Chibi',
+                                    },
+                                    {
+                                        value: 'character',
+                                        name: 'A character',
+                                    },
 
-                            ]}
-                            isError={this.state.optionError}
-                            handleOptionChange={this.handleOptionChange}
-                        />
-                        <p className="label">
-                            <span className="number font-fjalla">3.</span> Any extras:
-                        </p>
-                        <CustomMultipleSelect
-                            elems={[
-                                {
-                                    value: '+character',
-                                    name: 'More character(s)',
-                                },
-                                {
-                                    value: 'simple background',
-                                    name: 'A simple background',
-                                },
-                                {
-                                    value: 'complex background',
-                                    name: 'A complex background',
-                                },
+                                ]}
+                                isError={this.state.optionError}
+                                handleOptionChange={this.handleOptionChange}
+                            />
+                        </section>
+                        <section>
+                            <p className="label">
+                                <span className="number font-fjalla">3.</span> Any extras:
+                            </p>
+                            <CustomMultipleSelect
+                                elems={[
+                                    {
+                                        value: '+character',
+                                        name: 'More character(s)',
+                                    },
+                                    {
+                                        value: 'simple background',
+                                        name: 'A simple background',
+                                    },
+                                    {
+                                        value: 'complex background',
+                                        name: 'A complex background',
+                                    },
 
-                            ]}
-                            handleOptionChange={this.handleAdditionalOptionChange}
-                        />
-                        <p className="label">
-                            <span className="number font-fjalla">4.</span> What I want:
-                        </p>
+                                ]}
+                                handleOptionChange={this.handleAdditionalOptionChange}
+                            />
+                        </section>
+                        <section>
+                            <p className="label">
+                                <span className="number font-fjalla">4.</span> What I want:
+                            </p>                        
+                            <MessageEditor onChange={this.handleEditorChange}/>
+                        </section>
                     </div>
-                    <MessageEditor onChange={this.handleEditorChange}/>
                     {
                         this.props.commissionCreated ?
                         (
