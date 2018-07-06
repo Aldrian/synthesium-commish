@@ -1,3 +1,8 @@
+.Request {
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
 .Request input {
 	color: white;
 	background: transparent;
