@@ -19,3 +19,37 @@
 .Button:hover {
   transform: translate3d(0px, -3px, 0px);
 }
+
+.Button .sk-wave {
+  margin: 0 auto;
+  width: 50px;
+  height: 23px;
+  text-align: center; }
+  .Button .sk-wave .sk-rect {
+    background-color: white;
+    height: 100%;
+    width: 6px;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: inline-block;
+    animation: sk-waveStretchDelay 1.2s infinite ease-in-out; }
+    .Button .sk-wave .sk-rect1 {
+    animation-delay: -1.2s; }
+    .Button .sk-wave .sk-rect2 {
+    animation-delay: -1.1s; }
+    .Button .sk-wave .sk-rect3 {
+    animation-delay: -1s; }
+    .Button .sk-wave .sk-rect4 {
+    animation-delay: -0.9s; }
+    .Button .sk-wave .sk-rect5 {
+    animation-delay: -0.8s; }
+@-webkit-keyframes sk-waveStretchDelay {
+  0%, 40%, 100% {
+            transform: scaleY(0.4); }
+  20% {
+            transform: scaleY(1); } }
+@keyframes sk-waveStretchDelay {
+  0%, 40%, 100% {
+            transform: scaleY(0.4); }
+  20% {
+            transform: scaleY(1); } }

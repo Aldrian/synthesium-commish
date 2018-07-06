@@ -1,13 +1,18 @@
-.editor {
-    box-sizing: border-box;
-    border: 1px solid #6146d7;
-    cursor: text;
-    padding: 16px;
-    border-radius: 3px;
-    margin-bottom: 2em;
-  }
-  
-  .editor :global(.public-DraftEditor-content) {
-    min-height: 140px;
-  }
-  
+.Request input {
+	color: white;
+	background: transparent;
+	box-shadow: none;
+	outline: none;
+	padding: 10px 15px;
+	margin-top: 10px;
+	border: 1px solid #6146d7;
+	transition: all .5s ease;
+}
+
+.Request input.is-error {
+	border-color: red;
+}
+
+.Request input:focus {
+	outline: none;
+}

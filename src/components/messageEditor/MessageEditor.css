@@ -1,0 +1,46 @@
+.MessageEditor {
+    box-sizing: border-box;
+    border: 1px solid #6146d7;
+    cursor: text;
+    padding: 0;
+    border-radius: 3px;
+    margin-bottom: 2em;
+  }
+  
+  .MessageEditor :global(.public-DraftEditor-content) {
+    min-height: 140px;
+  }
+  
+  .MessageEditor .md-RichEditor-root {
+      background: transparent;
+      padding: 10px 15px;
+  }
+  
+
+  .MessageEditor .md-sb-button {
+      color: white;
+      border-color: white;
+      font-size: 16px;
+      padding-left: 6px;
+  }
+
+  .MessageEditor .md-side-toolbar {
+      left: -50px;
+  }
+
+  .MessageEditor .md-sb-button svg path {
+    fill: white;
+}
+
+.MessageEditor .md-sb-button.md-sb-img-button {
+    background: #6146d7;
+    color: white;
+}
+
+.MessageEditor figure.md-block-image img {
+    border: none;
+}
+
+.MessageEditor figure.md-block-image figcaption {
+    display: none;
+}
