@@ -24,6 +24,18 @@ export const createCommission = (
           }
       }
   `;
+  
+export const getCommissionData = (id) => `
+    query {
+        Commission(id: "${id}") {
+            messages {
+                sender
+                createdAt
+                rawData
+            }
+        }
+    }  
+`;
 
   export const authenticateUser = () => ``;
 

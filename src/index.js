@@ -22,7 +22,8 @@ import './bootstrap-reboot.css';
 import './bootstrap-grid.css';
 import './index.css';
 import Landing from './containers/landing/';
-import Request from './containers/request/';
+import CreateRequest from './containers/createRequest/';
+import SeeRequest from './containers/seeRequest/';
 import registerServiceWorker from './registerServiceWorker';
 
 
@@ -46,7 +47,8 @@ const Index = (props) => (
 		<ConnectedRouter history={history}>
 			<Switch>
 				<Route exact path="/" component={Landing} />
-				<Route exact path="/request" component={Request} />
+				<Route exact path="/request" component={CreateRequest} />
+				<Route path="/request/:id" component={SeeRequest} />
 			</Switch>
 		</ConnectedRouter>
   </IntlProvider>

@@ -45,3 +45,16 @@
 .MessageEditor figure.md-block-image figcaption {
     display: none;
 }
+
+.MessageEditor figure.md-block-image {
+    margin: 0;
+    background: none;
+}
+
+.MessageEditor figure {
+    margin: 0;
+}
+
+.MessageEditor figure.md-block-image img {
+    width: inherit;
+}
