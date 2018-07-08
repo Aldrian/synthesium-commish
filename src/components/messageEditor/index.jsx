@@ -27,6 +27,11 @@ class MessageEditor extends Component {
 	componentDidMount() {
 		
     }
+    componentWillReceiveProps(newProps) {
+        if (newProps.shouldCleanData) {
+            this.setState({editorState: createEditorState()})
+        }
+    }
 
     focusEditor = () => {
         this.editor.focus();
@@ -38,6 +43,7 @@ class MessageEditor extends Component {
                 editorState={this.state.editorState}
                 onChange={this.onChange}
                 sideButtons={this.sideButtons}
+                placeholder="Write here..."
                 ref={(element) => { this.editor = element; }}
                 />
             </div>

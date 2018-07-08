@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import {
-    Editor,
-    createEditorState,
-  } from 'medium-draft';
- 
 import { createRequest } from "../../data/commissions/";
 import MessageEditor from '../../components/messageEditor'
 import Button from '../../components/button'

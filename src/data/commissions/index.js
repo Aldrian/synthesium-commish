@@ -2,7 +2,8 @@ import {request} from 'graphql-request';
 import {push} from 'react-router-redux';
 import {
     createCommission,
-    getCommissionData
+    getCommissionData,
+    sendMessageMutation
 } from '../queries';
 import {
 	GRAPHQL_API,
@@ -62,6 +63,25 @@ export const createRequest = (email, option, extras, messageData) => (dispatch) 
         dispatch({
             type: CREATED_COMMISSION,
         });
+      })
+      .catch((err) => {
+        dispatch({
+            type: CREATING_COMMISSION_ERROR,
+        });
+        console.log(err)
+      }) 
+}
+
+export const sendMessage = (commissionID, messageData) => (dispatch) => {
+    dispatch({
+		type: CREATING_COMMISSION,
+	});
+    request(GRAPHQL_API, sendMessageMutation(commissionID, messageData))
+      .then((data) => {
+        dispatch({
+            type: CREATED_COMMISSION,
+        });
+        dispatch(getCommission(commissionID));
       })
       .catch((err) => {
         dispatch({

@@ -24,6 +24,21 @@ export const createCommission = (
           }
       }
   `;
+
+  export const sendMessageMutation = (
+    commissionID,
+    messageData
+  ) => `
+      mutation{
+          createMessage(              
+            sender: "user"
+            commissionId: "${commissionID}"
+            rawData:  ${JSON.stringify(JSON.stringify(messageData))}              
+          ) {
+              id
+          }
+      }
+  `;
   
 export const getCommissionData = (id) => `
     query {

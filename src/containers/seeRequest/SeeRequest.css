@@ -1,4 +1,100 @@
 .SeeRequest {
 	margin-top: 80px;
-	margin-bottom: 80px;
+	margin-bottom: 110px;
+}
+
+.SeeRequest .messages:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.SeeRequest .message {
+	position: relative;
+	width: 90%;
+	padding: 10px 20px;
+	border-radius: 8px;
+	border: 1px solid #6146d7;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.SeeRequest .message figure.md-block-image {
+	border: none;
+}
+
+.SeeRequest .message figure.md-block-image figcaption {
+    display: none;
+}
+
+.SeeRequest .message figure.md-block-image {
+    margin: 0;
+    background: none;
+}
+
+.SeeRequest .message figure {
+    margin: 0;
+}
+
+.SeeRequest .message figure.md-block-image img {
+	width: inherit;
+	border: none;
+}
+
+.SeeRequest .message.message-user {
+	float: left;
+}
+
+.SeeRequest .message.message-admin {
+	float: right;
+}
+
+.SeeRequest .message .avatar {
+	position: absolute;
+	right: -25px;
+	top: -25px;
+	width: 50px;
+	height: 50px;
+	border-radius:  50%;
+	border: 2px solid white;
+	background: #c0b2fc;
+	padding: 5px;
+}
+.SeeRequest .message .time {
+	position: absolute;
+	right: 25px;
+	top: -25px;
+	font-size: 0.6em;
+}
+
+.SeeRequest .message.message-admin .avatar {
+	right: inherit;
+	left: -25px;
+}
+
+.SeeRequest .message.message-admin .time {
+	position: absolute;
+	right: inherit;
+	left: 25px;
+	top: -25px;
+	font-size: 0.6em;
+}
+
+
+.SeeRequest .message .avatar img {
+	width: 100%;
+	height: auto;
+}
+
+.SeeRequest hr {
+	border-color: #6146d7;
+	background: #6146d7;
+}
+
+.SeeRequest .MessageEditor {
+	margin-top: 25px;
+}
+
+.SeeRequest .Button {
+	float: right;
 }
