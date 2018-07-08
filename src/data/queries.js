@@ -25,6 +25,21 @@ export const createCommission = (
       }
   `;
 
+  export const getAllCommissionsQuery = () => `
+    {
+        allCommissions {
+            id
+            status
+            createdAt
+            request {
+                email
+                option
+                extras
+            }
+        }
+    }
+  `;
+
   export const sendMessageMutation = (
     commissionID,
     messageData
@@ -34,6 +49,20 @@ export const createCommission = (
             sender: "user"
             commissionId: "${commissionID}"
             rawData:  ${JSON.stringify(JSON.stringify(messageData))}              
+          ) {
+              id
+          }
+      }
+  `;
+
+  export const updateCommissionStatusMutation = (
+    commissionID,
+    status
+  ) => `
+      mutation{
+          updateCommission(
+            id: "${commissionID}"
+            status: "${status}"            
           ) {
               id
           }

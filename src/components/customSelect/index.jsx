@@ -5,7 +5,7 @@ class CustomSelect extends Component {
         super(props);        
         this.state = {
             pricingSelectActive: false,
-            items: this.props.elems.map(elem => ({value: elem.value, name: elem.name, selected: false})),
+            items: this.props.elems.map(elem => ({value: elem.value, name: elem.name, selected: props.init === elem.value})),
         }
         this.markChoiceActive = this.markChoiceActive.bind(this);
     }
@@ -15,16 +15,20 @@ class CustomSelect extends Component {
         items.forEach(e => e.selected = false);
         items[valueIndex].selected = true;
         this.setState({items});
-        this.props.handleOptionChange(value);
+        this.props.handleOptionChange(value, this.props.commissionID);
     }
     render() {
         return (
-            <div className="CustomSelect">
+            <div className={`CustomSelect select-${this.props.mode}`}>
                 <div tabIndex="0" className={`cs-select cs-skin-slide ${this.state.pricingSelectActive ? 'cs-active' : ''} ${this.props.isError ? 'is-error' : ''}`} onClick={() => { this.setState({ pricingSelectActive: !this.state.pricingSelectActive }) }} onBlur={() => { this.setState({ pricingSelectActive: false }) }}>
                     <span className="cs-placeholder">
-                    {
-                        this.state.items.find(e => e.selected) ? this.state.items.find(e => e.selected).name : 'Choose your option'
-                    }
+                    {this.props.mode !== 'manage' && (
+                        <i>
+                            {
+                                this.state.items.find(e => e.selected) ? this.state.items.find(e => e.selected).name : 'Choose your option'
+                            }
+                        </i>
+                    )}                    
                     </span>
                     <div className="cs-options">
                         <ul>
@@ -34,7 +38,7 @@ class CustomSelect extends Component {
                                         data-option
                                         data-value={item.value}
                                         className={`${item.selected ? 'cs-selected' : ''}`}
-                                        onClick={() => {this.markChoiceActive(item.value)}}
+                                        onClick={(e) => {this.markChoiceActive(item.value)}}
                                     >
                                             <span>{item.name}</span>
                                     </li>

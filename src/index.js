@@ -22,6 +22,7 @@ import './bootstrap-reboot.css';
 import './bootstrap-grid.css';
 import './index.css';
 import Landing from './containers/landing/';
+import Manage from './containers/manage/';
 import CreateRequest from './containers/createRequest/';
 import SeeRequest from './containers/seeRequest/';
 import registerServiceWorker from './registerServiceWorker';
@@ -48,6 +49,7 @@ const Index = (props) => (
 			<Switch>
 				<Route exact path="/" component={Landing} />
 				<Route exact path="/request" component={CreateRequest} />
+				<Route exact path="/manage" component={Manage} />
 				<Route path="/request/:id" component={SeeRequest} />
 			</Switch>
 		</ConnectedRouter>

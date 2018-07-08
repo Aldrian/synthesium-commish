@@ -40,11 +40,11 @@ class MessageEditor extends Component {
 		return (
             <div className="MessageEditor" onClick={this.focusEditor}>
                 <Editor
-                editorState={this.state.editorState}
-                onChange={this.onChange}
-                sideButtons={this.sideButtons}
-                placeholder="Write here..."
-                ref={(element) => { this.editor = element; }}
+                    editorState={this.state.editorState}
+                    onChange={this.onChange}
+                    sideButtons={this.sideButtons}
+                    placeholder="Write here..."
+                    ref={(element) => { this.editor = element; }}
                 />
             </div>
 		);

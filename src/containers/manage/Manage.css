@@ -1,0 +1,42 @@
+.Manage {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.Manage .commission-group-commisions {
+    display: flex;
+    flex-direction: row;
+    justify-content:  flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Manage .commission {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #6146d7;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.Manage .commission i {
+    margin-right: 5px;
+}
+
+.Manage .commission .CustomSelect {
+    float: right;
+    width: 100%;
+}
+
+.Manage a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.Manage .commission .commission-see {
+    position: absolute;
+    top: 12px;
+    z-index: 115;
+    right: 5px;
+}

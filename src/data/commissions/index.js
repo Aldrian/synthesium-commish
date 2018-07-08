@@ -3,7 +3,9 @@ import {push} from 'react-router-redux';
 import {
     createCommission,
     getCommissionData,
-    sendMessageMutation
+    sendMessageMutation,
+    getAllCommissionsQuery,
+    updateCommissionStatusMutation
 } from '../queries';
 import {
 	GRAPHQL_API,
@@ -13,12 +15,14 @@ export const CREATING_COMMISSION = 'commission/CREATING_COMMISSION';
 export const CREATED_COMMISSION = 'commission/CREATED_COMMISSION';
 export const CREATING_COMMISSION_ERROR = 'commission/CREATING_COMMISSION_ERROR';
 export const GET_COMMISSION = 'commission/GET_COMMISSION';
+export const GET_ALL_COMMISSIONS = 'commission/GET_ALL_COMMISSIONS';
 
 const initialState = {
     creatingCommission: false,
     creatingCommissionError: false,
     commissionCreated: false,
     messages: [],
+    commissions: [],
 };
 
 export default (state = initialState, action) => {
@@ -48,7 +52,12 @@ export default (state = initialState, action) => {
         return {
             ...state,
             messages: action.data.messages,
-    }
+        }
+        case GET_ALL_COMMISSIONS:
+        return {
+            ...state,
+            commissions: action.commissions,
+        }
 		default:
 			return state;
 	}
@@ -91,6 +100,16 @@ export const sendMessage = (commissionID, messageData) => (dispatch) => {
       }) 
 }
 
+export const updateCommissionStatus = (commissionID, status) => (dispatch) => {
+    request(GRAPHQL_API, updateCommissionStatusMutation(commissionID, status))
+      .then((data) => {
+        dispatch(getAllCommissions());
+      })
+      .catch((err) => {
+        console.log(err)
+      }) 
+}
+
 export const getCommission = (id) => (dispatch) => {
     request(GRAPHQL_API, getCommissionData(id))
       .then((data) => {
@@ -98,6 +117,25 @@ export const getCommission = (id) => (dispatch) => {
             dispatch({
                 type: GET_COMMISSION,
                 data: data.Commission,
+            });
+        }
+        else {
+            dispatch(push('/'));
+        }
+      })
+      .catch((err) => {
+        dispatch(push('/'));
+        console.log(err);
+      }) 
+}
+
+export const getAllCommissions = (id) => (dispatch) => {
+    request(GRAPHQL_API, getAllCommissionsQuery())
+      .then((data) => {
+        if (data.allCommissions) {
+            dispatch({
+                type: GET_ALL_COMMISSIONS,
+                commissions: data.allCommissions,
             });
         }
         else {
